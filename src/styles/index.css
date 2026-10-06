@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Design system entry point
+   Order matters: tokens must resolve before consumers reference them.
+   ========================================================================== */
+
+@import './tokens.css';
+@import './base.css';
+@import './typography.css';
+@import './layout.css';
+@import './animations.css';

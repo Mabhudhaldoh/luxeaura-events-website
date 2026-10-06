@@ -1,0 +1,304 @@
+/* About — story, pillars, founder and team. */
+
+/* --- Story --------------------------------------------------------------- */
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 6vw, 5.5rem);
+  align-items: center;
+}
+
+.storyCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.storyCopy :global(.t-display) {
+  margin-block: 0.15em 0.2em;
+}
+
+.storyCopy :global(.t-lead) {
+  max-width: 54ch;
+}
+
+.storyMedia {
+  max-width: 30rem;
+}
+
+/* --- Stats --------------------------------------------------------------- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-5);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--c-gold-deep);
+}
+
+.statLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- Pillars ------------------------------------------------------------- */
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  padding-top: var(--sp-5);
+  border-top: 2px solid var(--c-gold);
+}
+
+.pillarLabel {
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold-deep);
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.24;
+  color: var(--text-strong);
+}
+
+.pillarBody {
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+
+/* --- Approach ------------------------------------------------------------ */
+
+.approachMedia {
+  max-width: 28rem;
+}
+
+.points {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: var(--sp-2);
+}
+
+.points li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 1.6rem;
+  font-size: var(--fs-small);
+  color: var(--text-body);
+  border-top: 1px solid var(--line);
+}
+
+.points li::before {
+  content: '';
+  position: absolute;
+  top: 1.35rem;
+  left: 0.2rem;
+  width: 5px;
+  height: 5px;
+  background: var(--c-gold);
+  transform: rotate(45deg);
+}
+
+/* --- Founder ------------------------------------------------------------- */
+
+.founder {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.founderMedia {
+  max-width: 26rem;
+}
+
+.founderCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.founderName {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-gold-light);
+}
+
+.founderParagraph {
+  max-width: 54ch;
+  font-size: var(--fs-small);
+  line-height: 1.85;
+  color: var(--text-on-dark-muted);
+}
+
+.signature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-5);
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--line-on-dark-soft);
+}
+
+.signatureMark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--c-gold-light);
+}
+
+/* --- Commitments --------------------------------------------------------- */
+
+.commitments {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-5);
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line-on-dark);
+}
+
+.commitment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.commitmentIndex {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--c-gold);
+}
+
+.commitmentTitle {
+  font-size: 1.075rem;
+  color: var(--c-ivory);
+}
+
+.commitmentBody {
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--text-on-dark-muted);
+}
+
+/* --- Team ---------------------------------------------------------------- */
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.2vw, 2rem);
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.memberMedia {
+  margin-bottom: var(--sp-3);
+  overflow: hidden;
+  background: var(--c-ivory-deep);
+}
+
+.memberMedia img {
+  transition: transform 900ms var(--ease-out-expo);
+}
+
+.member:hover .memberMedia img {
+  transform: scale(1.05);
+}
+
+.memberName {
+  font-size: 1.075rem;
+  color: var(--text-strong);
+}
+
+.memberRole {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold-deep);
+}
+
+.memberBio {
+  margin-top: 0.4rem;
+  font-size: 0.8125rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .storyGrid,
+  .founder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .storyMedia,
+  .founderMedia,
+  .approachMedia {
+    max-width: 34rem;
+  }
+
+  .team {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .commitments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6) var(--sp-5);
+  }
+}
+
+@media (max-width: 760px) {
+  .team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .pillars,
+  .commitments {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

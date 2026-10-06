@@ -1,0 +1,88 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--c-ivory);
+  transition: opacity var(--dur-fast) var(--ease-out-quart);
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.mark {
+  width: 34px;
+  height: 34px;
+  flex: none;
+}
+
+.ringOuter,
+.ringInner {
+  fill: none;
+  stroke: var(--c-gold);
+  stroke-width: 1;
+  opacity: 0.85;
+}
+
+.ringInner {
+  opacity: 0.45;
+  stroke-dasharray: 4 5;
+}
+
+.core {
+  fill: var(--c-gold);
+}
+
+.tick {
+  stroke: var(--c-gold);
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  line-height: 1;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  letter-spacing: 0.005em;
+}
+
+.suffix {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+}
+
+/* Light-on-light context (solid navbar, footer on ivory) */
+.toneDark .logo,
+.toneDark {
+  color: var(--c-charcoal);
+}
+
+.toneDark .name {
+  color: var(--c-charcoal);
+}
+
+@media (max-width: 420px) {
+  .mark {
+    width: 29px;
+    height: 29px;
+  }
+
+  .name {
+    font-size: 1.16rem;
+  }
+
+  .suffix {
+    font-size: 0.5625rem;
+    letter-spacing: 0.24em;
+  }
+}

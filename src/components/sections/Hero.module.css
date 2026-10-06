@@ -1,0 +1,194 @@
+/* Hero — cinematic, full-bleed, bottom-weighted composition. */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 640px;
+  height: 100svh;
+  padding-bottom: clamp(3.5rem, 8vh, 6rem);
+  color: var(--c-ivory);
+  background: var(--c-charcoal-deep);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  animation: la-scale-in 2000ms var(--ease-out-expo) both;
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.frame img {
+  animation: none;
+}
+
+/* Layered scrim: vertical falloff + a soft vignette so type always reads. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(16, 15, 14, 0.92) 0%,
+      rgba(16, 15, 14, 0.68) 26%,
+      rgba(16, 15, 14, 0.34) 52%,
+      rgba(16, 15, 14, 0.42) 100%
+    ),
+    radial-gradient(120% 90% at 50% 40%, transparent 30%, rgba(16, 15, 14, 0.5) 100%);
+}
+
+.inner {
+  position: relative;
+  z-index: var(--z-base);
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-5);
+  max-width: 56rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold-light);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 44px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  margin-block: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--c-white);
+}
+
+/* Each line sits in its own overflow box so it can rise on load. */
+.line {
+  display: block;
+  overflow: hidden;
+}
+
+.line > * ,
+.line {
+  will-change: transform;
+}
+
+.lineLast {
+  color: var(--c-gold-light);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  max-width: 34ch;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.6vw, 1.375rem);
+  line-height: 1.6;
+  color: rgba(242, 237, 230, 0.9);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-4);
+  margin-top: var(--sp-3);
+}
+
+/* --- Side note & scroll indicator ---------------------------------------- */
+
+.sideNote {
+  position: absolute;
+  top: 50%;
+  right: clamp(0.75rem, 1.5vw, 1.5rem);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(242, 237, 230, 0.55);
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+.scrollHint {
+  position: absolute;
+  bottom: clamp(3.5rem, 8vh, 6rem);
+  right: var(--gutter);
+  z-index: var(--z-base);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.scrollLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(242, 237, 230, 0.65);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 560px;
+  }
+
+  .sideNote {
+    display: none;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: auto;
+    min-height: 92svh;
+    padding-block: 9rem 4rem;
+  }
+
+  .heading {
+    line-height: 0.94;
+  }
+
+  .actions {
+    width: 100%;
+  }
+}

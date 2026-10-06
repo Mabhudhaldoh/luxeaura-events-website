@@ -1,0 +1,27 @@
+.main {
+  flex: 1 0 auto;
+}
+
+.main:focus {
+  outline: none;
+}
+
+.fallback {
+  display: grid;
+  place-items: center;
+  min-height: 70svh;
+  background: var(--c-ivory);
+}
+
+.fallbackMark {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: var(--c-gold-deep);
+  border: 1px solid var(--line-strong);
+  animation: la-pulse-dot 2s var(--ease-in-out) infinite;
+}

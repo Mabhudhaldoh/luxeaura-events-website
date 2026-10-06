@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Typography — editorial scale, eyebrows, display helpers
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-display);
+  color: var(--text-strong);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-h2);
+}
+h2 {
+  font-size: var(--fs-h3);
+}
+h3 {
+  font-size: var(--fs-h4);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* --- Display headings --------------------------------------------------- */
+
+.t-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: -0.028em;
+}
+
+.t-hero {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.032em;
+}
+
+.t-lead {
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: 1.68;
+  color: var(--text-body);
+}
+
+/* Serif italic accents — a classic editorial device */
+.t-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--c-gold);
+}
+
+/* --- Eyebrow / label ---------------------------------------------------- */
+
+.t-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold-deep);
+}
+
+.t-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
+}
+
+.t-eyebrow--plain::before {
+  display: none;
+}
+
+.t-label {
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.t-numeric {
+  font-family: var(--font-display);
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.t-body {
+  color: var(--text-body);
+}
+
+.t-muted {
+  color: var(--text-muted);
+}
+
+/* --- On-dark inversions ------------------------------------------------- */
+
+.on-dark {
+  color: var(--text-on-dark);
+}
+
+.on-dark h1,
+.on-dark h2,
+.on-dark h3,
+.on-dark h4,
+.on-dark .t-display,
+.on-dark .t-hero {
+  color: var(--text-on-dark);
+}
+
+.on-dark .t-eyebrow {
+  color: var(--c-gold-light);
+}
+
+.on-dark .t-label {
+  color: var(--text-on-dark-muted);
+}
+
+.on-dark .t-muted {
+  color: var(--text-on-dark-muted);
+}

@@ -1,0 +1,150 @@
+/* Portfolio tile — image first, metadata revealed on hover and always on touch. */
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--c-charcoal-soft);
+}
+
+.media {
+  transition: transform 1200ms var(--ease-out-expo);
+}
+
+.media img {
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform 1200ms var(--ease-out-expo);
+}
+
+.link:hover .media img,
+.link:focus-visible .media img {
+  transform: scale(1.05);
+}
+
+/* Scrim only becomes visible on hover, keeping the resting grid clean. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(16, 15, 14, 0.9) 0%,
+    rgba(16, 15, 14, 0.45) 38%,
+    rgba(16, 15, 14, 0.05) 70%
+  );
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out-expo);
+}
+
+.link:hover .scrim,
+.link:focus-visible .scrim {
+  opacity: 1;
+}
+
+.meta {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  text-align: left;
+}
+
+.category {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold-light);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--dur-base) var(--ease-out-expo),
+    transform var(--dur-base) var(--ease-out-expo);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--c-white);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--dur-base) var(--ease-out-expo) 60ms,
+    transform var(--dur-base) var(--ease-out-expo) 60ms;
+}
+
+.place {
+  font-size: 0.6875rem;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: rgba(242, 237, 230, 0.72);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--dur-base) var(--ease-out-expo) 110ms,
+    transform var(--dur-base) var(--ease-out-expo) 110ms;
+}
+
+/* Explicit "open gallery" affordance shown on the portfolio page. */
+.count {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-gold-light);
+  border: 1px solid rgba(198, 161, 91, 0.5);
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--dur-base) var(--ease-out-expo) 160ms,
+    transform var(--dur-base) var(--ease-out-expo) 160ms;
+}
+
+.link:hover .count,
+.link:focus-visible .count {
+  opacity: 1;
+  transform: none;
+}
+
+.link:hover .category,
+.link:hover .name,
+.link:hover .place,
+.link:focus-visible .category,
+.link:focus-visible .name,
+.link:focus-visible .place {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch devices never hover — keep the caption visible. */
+@media (hover: none) {
+  .scrim {
+    opacity: 1;
+  }
+
+  .category,
+  .name,
+  .place,
+  .count {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,116 @@
+/* ==========================================================================
+   LuxeAura Events — Design Tokens
+   Single source of truth for colour, type, spacing, motion and elevation.
+   ========================================================================== */
+
+:root {
+  /* --- Brand palette --------------------------------------------------- */
+  --c-charcoal: #171615;
+  --c-ivory: #f7f3ed;
+  --c-gold: #c6a15b;
+  --c-taupe: #b8aa98;
+  --c-white: #ffffff;
+
+  /* --- Derived neutrals (kept deliberately narrow and warm) ------------- */
+  --c-ink: #171615;
+  --c-ink-soft: #3a3633;
+  --c-ink-muted: #6f6862;
+  --c-ivory-warm: #f7f3ed;
+  --c-ivory-deep: #efe8de;
+  --c-charcoal-soft: #211f1d;
+  --c-charcoal-deep: #100f0e;
+  --c-gold-light: #ddbd83;
+  --c-gold-deep: #a3813f;
+
+  /* --- Semantic surfaces ---------------------------------------------- */
+  --surface-page: var(--c-ivory);
+  --surface-raised: var(--c-white);
+  --surface-dark: var(--c-charcoal);
+  --surface-dark-soft: var(--c-charcoal-soft);
+
+  /* --- Text ------------------------------------------------------------ */
+  --text-strong: var(--c-ink);
+  --text-body: #45403b;
+  --text-muted: #7d766f;
+  --text-on-dark: #f2ede6;
+  --text-on-dark-muted: #b3a99c;
+
+  /* --- Lines & borders -------------------------------------------------- */
+  --line: rgba(23, 22, 21, 0.13);
+  --line-strong: rgba(23, 22, 21, 0.26);
+  --line-on-dark: rgba(247, 243, 237, 0.16);
+  --line-on-dark-soft: rgba(247, 243, 237, 0.09);
+
+  /* --- Typography ------------------------------------------------------- */
+  --font-display: 'Playfair Display Variable', 'Playfair Display', 'Didot', 'Bodoni MT',
+    Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  /* Fluid editorial scale — every step is clamp() so nothing needs breakpoints */
+  --fs-hero: clamp(2.85rem, 9.2vw, 8.5rem);
+  --fs-display: clamp(2.4rem, 6.2vw, 5.25rem);
+  --fs-h2: clamp(2rem, 4.6vw, 3.85rem);
+  --fs-h3: clamp(1.5rem, 2.6vw, 2.15rem);
+  --fs-h4: clamp(1.2rem, 1.7vw, 1.45rem);
+  --fs-lead: clamp(1.06rem, 1.35vw, 1.3rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.0625rem);
+  --fs-small: 0.9375rem;
+  --fs-micro: 0.75rem;
+  --fs-eyebrow: 0.6875rem;
+
+  --lh-display: 1.02;
+  --lh-heading: 1.14;
+  --lh-body: 1.78;
+
+  /* Letterspacing — the single strongest "luxury" signal in type */
+  --ls-display: -0.022em;
+  --ls-eyebrow: 0.28em;
+  --ls-label: 0.16em;
+  --ls-body: 0.005em;
+
+  /* --- Space scale ------------------------------------------------------ */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  /* Vertical rhythm: clamp against viewport so mobile never feels cramped */
+  --section-y: clamp(4.5rem, 9vw, 8.5rem);
+  --section-y-lg: clamp(5.5rem, 11vw, 11rem);
+
+  /* --- Layout ----------------------------------------------------------- */
+  --container: 1320px;
+  --container-narrow: 940px;
+  --container-wide: 1560px;
+  --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
+  --nav-h: 84px;
+  --nav-h-mobile: 68px;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur-fast: 240ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+
+  /* --- Elevation (soft, diffuse — never heavy) --------------------------- */
+  --shadow-sm: 0 1px 2px rgba(23, 22, 21, 0.04), 0 4px 14px rgba(23, 22, 21, 0.05);
+  --shadow-md: 0 2px 6px rgba(23, 22, 21, 0.05), 0 18px 44px rgba(23, 22, 21, 0.09);
+  --shadow-lg: 0 4px 12px rgba(23, 22, 21, 0.06), 0 40px 90px rgba(23, 22, 21, 0.14);
+  --shadow-inset-hairline: inset 0 0 0 1px var(--line);
+
+  --z-base: 1;
+  --z-sticky: 60;
+  --z-nav: 100;
+  --z-menu: 200;
+  --z-lightbox: 300;
+  --z-skip: 400;
+}

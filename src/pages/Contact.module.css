@@ -1,0 +1,330 @@
+/* Contact — details column + form, then a closing location band. */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: start;
+}
+
+/* --- Details ------------------------------------------------------------- */
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+}
+
+.detailsTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1.14;
+  color: var(--text-strong);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--sp-3);
+}
+
+.contactList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-block: var(--sp-4);
+  border-top: 1px solid var(--line);
+}
+
+.contactLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contactLink {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-strong);
+  overflow-wrap: anywhere;
+  transition: color var(--dur-fast) linear;
+}
+
+.contactLink:hover,
+.contactLink:focus-visible {
+  color: var(--c-gold-deep);
+}
+
+.contactValue {
+  font-size: var(--fs-small);
+  color: var(--text-body);
+}
+
+.hours {
+  margin-top: var(--sp-3);
+  padding: var(--sp-5);
+  background: var(--c-white);
+  border: 1px solid var(--line);
+}
+
+.hoursHeading {
+  margin-bottom: var(--sp-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold-deep);
+}
+
+.hours ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding-block: 0.6rem;
+  font-size: var(--fs-small);
+  color: var(--text-body);
+  border-bottom: 1px solid var(--line);
+}
+
+.hours li span:last-child {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  white-space: nowrap;
+}
+
+.response {
+  margin-top: var(--sp-4);
+  font-size: var(--fs-micro);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.detailsCta {
+  margin-top: var(--sp-2);
+}
+
+/* --- Form ---------------------------------------------------------------- */
+
+.formColumn {
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  background: var(--c-white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--text-strong);
+}
+
+.formIntro {
+  margin-block: var(--sp-3) var(--sp-6);
+  font-size: var(--fs-small);
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.formIntro span {
+  color: var(--c-gold-deep);
+}
+
+/* --- What happens next --------------------------------------------------- */
+
+.next {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.nextIntro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.nextIntro :global(.t-lead) {
+  max-width: 44ch;
+}
+
+.nextList {
+  display: flex;
+  flex-direction: column;
+}
+
+.nextStep {
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  gap: var(--sp-4);
+  padding-block: var(--sp-5);
+  border-top: 1px solid var(--line);
+}
+
+.nextStep:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.nextIndex {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--c-gold-deep);
+}
+
+.nextTitle {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.nextBody {
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* --- Location band ------------------------------------------------------- */
+
+.locationBand {
+  padding-block: var(--section-y);
+  color: var(--c-ivory);
+  background: var(--c-charcoal);
+}
+
+.locationGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.locationCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-4);
+}
+
+.locationTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.22;
+  color: var(--c-ivory);
+}
+
+.locationBody {
+  max-width: 42ch;
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: var(--text-on-dark-muted);
+}
+
+.locationCopy :global(.t-eyebrow) {
+  color: var(--c-gold-light);
+}
+
+/* Decorative locator panel — intentionally static, no map script. */
+.locator {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(circle at 62% 44%, rgba(198, 161, 91, 0.22), transparent 58%),
+    linear-gradient(140deg, #211f1d, #100f0e);
+  border: 1px solid var(--line-on-dark-soft);
+  overflow: hidden;
+}
+
+.locator::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  background-image:
+    linear-gradient(var(--line-on-dark-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-on-dark-soft) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.5;
+}
+
+.locatorInner {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.locatorCross {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  border-radius: 50%;
+  animation: la-pulse-dot 3.4s var(--ease-in-out) infinite;
+}
+
+.locatorDot {
+  width: 8px;
+  height: 8px;
+  margin-bottom: 2.25rem;
+  background: var(--c-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(198, 161, 91, 0.16);
+}
+
+.locatorLabel {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--c-ivory);
+}
+
+.locatorCoords {
+  font-size: 0.6875rem;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .details {
+    position: static;
+  }
+
+  .next {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .locationGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .formColumn {
+    padding: 1.25rem;
+  }
+
+  .hours li {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}

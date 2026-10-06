@@ -1,0 +1,288 @@
+/* ==========================================================================
+   Motion — reveal system, keyframes, marquee
+   All decorative motion collapses under prefers-reduced-motion.
+   ========================================================================== */
+
+/* --- Scroll reveal ------------------------------------------------------
+   .reveal starts hidden and is promoted by IntersectionObserver adding
+   .is-visible. Stagger is driven by an inline --reveal-delay custom property.
+   ----------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Image reveal: clip-path wipe is more editorial than a plain fade */
+.reveal-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1200ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-clip.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Line-by-line masked rise for the big display headings */
+.reveal-lines {
+  display: block;
+}
+
+.reveal-lines > * {
+  display: block;
+  overflow: hidden;
+}
+
+.reveal-lines > * > span {
+  display: block;
+  transform: translate3d(0, 105%, 0);
+  transition: transform 1100ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-lines.is-visible > * > span {
+  transform: none;
+}
+
+/* --- Keyframes ---------------------------------------------------------- */
+
+@keyframes la-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes la-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes la-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes la-scroll-hint {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes la-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes la-pulse-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes la-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Utility animation classes ------------------------------------------ */
+
+.anim-fade-up {
+  animation: la-fade-up 900ms var(--ease-out-expo) both;
+}
+
+.anim-fade-in {
+  animation: la-fade-in 1200ms var(--ease-out-expo) both;
+}
+
+.anim-scale-in {
+  animation: la-scale-in 1400ms var(--ease-out-expo) both;
+}
+
+/* Hero copy animates on load rather than on scroll (it is above the fold) */
+.hero-enter > * {
+  animation: la-fade-up 1100ms var(--ease-out-expo) both;
+}
+
+.hero-enter > *:nth-child(1) {
+  animation-delay: 120ms;
+}
+.hero-enter > *:nth-child(2) {
+  animation-delay: 260ms;
+}
+.hero-enter > *:nth-child(3) {
+  animation-delay: 420ms;
+}
+.hero-enter > *:nth-child(4) {
+  animation-delay: 560ms;
+}
+.hero-enter > *:nth-child(5) {
+  animation-delay: 700ms;
+}
+
+/* --- Marquee ------------------------------------------------------------ */
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee__track {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-7);
+  padding-block: var(--sp-5);
+  animation: la-marquee 46s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-7);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.1vw, 1.9rem);
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: var(--text-on-dark);
+  white-space: nowrap;
+}
+
+.marquee__dot {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--c-gold);
+  opacity: 0.8;
+}
+
+/* --- Scroll indicator --------------------------------------------------- */
+
+.scroll-hint {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.scroll-hint__track {
+  position: relative;
+  width: 1px;
+  height: 54px;
+  overflow: hidden;
+  background: rgba(247, 243, 237, 0.28);
+}
+
+.scroll-hint__track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--c-gold), transparent);
+  animation: la-scroll-hint 2.6s var(--ease-in-out) infinite;
+}
+
+/* --- Loading spinner ---------------------------------------------------- */
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  border: 1.5px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: la-spin 720ms linear infinite;
+}
+
+/* --- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-clip,
+  .reveal-lines > * > span {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
+
+  .hero-enter > *,
+  .anim-fade-up,
+  .anim-fade-in,
+  .anim-scale-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .marquee__track {
+    animation: none;
+    transform: none;
+  }
+
+  .scroll-hint__track::after {
+    animation: none;
+    background: var(--c-gold);
+    opacity: 0.5;
+  }
+
+  .spinner {
+    animation-duration: 2s;
+  }
+}

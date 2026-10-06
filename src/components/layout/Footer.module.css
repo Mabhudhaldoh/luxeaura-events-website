@@ -1,0 +1,196 @@
+/* Footer — dark, quiet, generous. The closing statement of the brand. */
+
+.footer {
+  position: relative;
+  color: var(--text-on-dark);
+  background: var(--c-charcoal-deep);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding: clamp(3.5rem, 7vw, 6.5rem) var(--gutter) clamp(3rem, 5vw, 4.5rem);
+}
+
+/* --- Brand column -------------------------------------------------------- */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.tagline {
+  max-width: 30ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  line-height: 1.5;
+  color: var(--c-ivory);
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4) var(--sp-5);
+}
+
+.social a {
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+  transition: color var(--dur-fast) linear;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  color: var(--c-gold);
+}
+
+/* --- Link columns -------------------------------------------------------- */
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.columnHeading {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-gold);
+}
+
+.columnList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.columnLink {
+  font-size: 0.9375rem;
+  color: var(--text-on-dark-muted);
+  transition: color var(--dur-fast) linear;
+}
+
+.columnLink:hover,
+.columnLink:focus-visible {
+  color: var(--c-ivory);
+}
+
+/* --- Contact strip ------------------------------------------------------- */
+
+.contactStrip {
+  border-top: 1px solid var(--line-on-dark-soft);
+  border-bottom: 1px solid var(--line-on-dark-soft);
+}
+
+.stripInner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-5);
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding: var(--sp-5) var(--gutter);
+}
+
+.stripItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.stripLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: rgba(179, 169, 156, 0.7);
+}
+
+.stripValue {
+  font-size: 0.9375rem;
+  color: var(--c-ivory);
+  overflow-wrap: anywhere;
+  transition: color var(--dur-fast) linear;
+}
+
+a.stripValue:hover {
+  color: var(--c-gold-light);
+}
+
+/* --- Legal --------------------------------------------------------------- */
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding: var(--sp-5) var(--gutter);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  color: rgba(179, 169, 156, 0.75);
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-5);
+}
+
+.legalLinks a {
+  transition: color var(--dur-fast) linear;
+}
+
+.legalLinks a:hover {
+  color: var(--c-gold);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stripInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6) var(--sp-5);
+  }
+}
+
+@media (max-width: 460px) {
+  .stripInner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-4);
+  }
+
+  .legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

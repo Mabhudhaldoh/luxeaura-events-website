@@ -1,0 +1,171 @@
+/* Button — square corners, generous tap targets, restrained hover motion. */
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  min-height: 54px;
+  padding: 0 clamp(1.5rem, 3vw, 2.4rem);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color var(--dur-base) var(--ease-out-expo),
+    border-color var(--dur-base) var(--ease-out-expo),
+    background-color var(--dur-base) var(--ease-out-expo),
+    transform var(--dur-fast) var(--ease-out-quart);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+/* Wipe fill: a pseudo-element scales in from the left on hover */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-gold);
+  transform: scale3d(0, 1, 1);
+  transform-origin: left center;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.button:hover::before,
+.button:focus-visible::before {
+  transform: scale3d(1, 1, 1);
+}
+
+.label {
+  position: relative;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.button:hover .icon {
+  transform: translateX(4px);
+}
+
+/* --- Sizes --------------------------------------------------------------- */
+
+.size-sm {
+  min-height: 44px;
+  padding: 0 1.4rem;
+  font-size: 0.6875rem;
+}
+
+.size-lg {
+  min-height: 62px;
+  padding: 0 clamp(2rem, 4vw, 3rem);
+  font-size: 0.8125rem;
+}
+
+/* --- Variants (light background context) --------------------------------- */
+
+.primary {
+  color: var(--c-ivory);
+  background: var(--c-charcoal);
+}
+
+.primary::before {
+  background: var(--c-gold-deep);
+}
+
+.secondary {
+  color: var(--c-ivory);
+  background: var(--c-gold);
+}
+
+.secondary::before {
+  background: var(--c-charcoal);
+}
+
+.outline {
+  color: var(--c-charcoal);
+  border-color: var(--line-strong);
+}
+
+.outline:hover,
+.outline:focus-visible {
+  color: var(--c-ivory);
+  border-color: var(--c-gold);
+}
+
+/* Underline slide — used for tertiary "text link with rule" actions */
+.ghost {
+  min-height: 44px;
+  padding-inline: 0;
+  color: var(--c-charcoal);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.ghost::before {
+  display: none;
+}
+
+.ghost:hover,
+.ghost:focus-visible {
+  color: var(--c-gold-deep);
+  border-bottom-color: var(--c-gold);
+}
+
+/* --- Tones (dark background context) ------------------------------------- */
+
+.tone-dark.ghost {
+  color: var(--c-ivory);
+  border-bottom-color: var(--line-on-dark);
+}
+
+.tone-dark.ghost:hover,
+.tone-dark.ghost:focus-visible {
+  color: var(--c-gold-light);
+  border-bottom-color: var(--c-gold);
+}
+
+.tone-dark.outline {
+  color: var(--c-ivory);
+  border-color: rgba(247, 243, 237, 0.34);
+}
+
+.tone-dark.outline:hover,
+.tone-dark.outline:focus-visible {
+  color: var(--c-charcoal);
+  border-color: var(--c-gold);
+}
+
+.tone-dark.primary {
+  color: var(--c-charcoal);
+  background: var(--c-ivory);
+}
+
+.tone-dark.primary::before {
+  background: var(--c-gold);
+}
+
+/* --- Small screens ------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  .button {
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .size-lg {
+    min-height: 58px;
+  }
+}

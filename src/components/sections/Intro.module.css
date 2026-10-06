@@ -1,0 +1,116 @@
+/* Intro — asymmetric editorial split: text left, layered photography right. */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.copy :global(.t-display) {
+  margin-block: 0.1em 0.2em;
+}
+
+.paragraph {
+  max-width: 46ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-6);
+  margin-top: var(--sp-4);
+}
+
+/* --- Visual -------------------------------------------------------------- */
+
+.visual {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.primary {
+  width: 100%;
+  max-width: 34rem;
+}
+
+.secondary {
+  position: absolute;
+  right: clamp(1.25rem, 4vw, 3.5rem);
+  bottom: clamp(-2rem, -2vw, -1.5rem);
+  width: 46%;
+  min-width: 190px;
+  border: 8px solid var(--c-ivory);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Caption anchored to the outer edge, sitting clear of the smaller image. */
+.caption {
+  position: absolute;
+  bottom: clamp(0.5rem, 2vw, 1.5rem);
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  max-width: 15rem;
+  font-size: var(--fs-micro);
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.captionRule {
+  flex: none;
+  width: 28px;
+  height: 1px;
+  margin-top: 0.6em;
+  background: var(--c-gold);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+
+@media (max-width: 1080px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-8);
+  }
+
+  .primary {
+    max-width: none;
+  }
+
+  .secondary {
+    right: clamp(0rem, 3vw, 2rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .visual {
+    padding-bottom: 3.5rem;
+  }
+
+  .secondary {
+    position: static;
+    width: 62%;
+    margin: -2.75rem 0 0 auto;
+    border-width: 6px;
+  }
+
+  .caption {
+    position: static;
+    max-width: none;
+    margin-top: var(--sp-4);
+  }
+
+  .actions {
+    gap: var(--sp-5);
+  }
+}

@@ -1,0 +1,150 @@
+/* Service card — square corners, hairline frame, image-led hover. */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-white);
+  border: 1px solid var(--line);
+  transition:
+    border-color var(--dur-base) var(--ease-out-expo),
+    box-shadow var(--dur-base) var(--ease-out-expo),
+    transform var(--dur-base) var(--ease-out-expo);
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: rgba(198, 161, 91, 0.55);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.mediaLink {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.media {
+  transition: transform 1100ms var(--ease-out-expo);
+}
+
+.card:hover .media img {
+  transform: scale(1.06);
+}
+
+.index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  min-width: 46px;
+  height: 46px;
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  color: var(--c-gold-light);
+  background: rgba(23, 22, 21, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+.title {
+  font-size: var(--fs-h4);
+  line-height: 1.2;
+}
+
+.titleLink {
+  transition: color var(--dur-fast) linear;
+}
+
+.titleLink:hover,
+.titleLink:focus-visible {
+  color: var(--c-gold-deep);
+}
+
+.summary {
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line);
+}
+
+.features li {
+  position: relative;
+  padding-left: 1.05rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.features li::before {
+  content: '';
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--c-gold);
+  transform: rotate(45deg);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink);
+  transition: color var(--dur-fast) linear;
+}
+
+.more svg {
+  transition: transform var(--dur-base) var(--ease-out-expo);
+}
+
+.more:hover,
+.more:focus-visible {
+  color: var(--c-gold-deep);
+}
+
+.more:hover svg {
+  transform: translateX(5px);
+}
+
+/* Anchor target for footer deep links — sits on the card edge. */
+.anchor {
+  position: absolute;
+  top: 0;
+  scroll-margin-top: calc(var(--nav-h) + 2rem);
+}
+
+/* --- Compact variant (homepage preview) ----------------------------------- */
+
+.compact .body {
+  padding: clamp(1.25rem, 2vw, 1.6rem);
+}
+
+.compact .title {
+  font-size: 1.28rem;
+}

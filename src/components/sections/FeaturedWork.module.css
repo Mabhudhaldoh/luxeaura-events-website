@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* 12-column editorial grid with mixed footprints. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+.cellWide {
+  grid-column: span 7;
+}
+
+.cellTall {
+  grid-column: span 5;
+}
+
+.cellStandard {
+  grid-column: span 5;
+}
+
+.cell {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .cellWide,
+  .cellTall,
+  .cellStandard {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 680px) {
+  .cellWide,
+  .cellTall,
+  .cellStandard {
+    grid-column: span 12;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
